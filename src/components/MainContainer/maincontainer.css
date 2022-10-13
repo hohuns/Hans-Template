@@ -1,0 +1,12 @@
+.mainContainer {
+  flex: 10;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.footer {
+  float: right;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
