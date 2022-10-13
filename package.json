@@ -41,7 +41,9 @@
     "build-pro": "REACT_APP_HOST_ENV=PRO react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -61,5 +63,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://hohuns.github.io/hansbank/"
+  "homepage": "https://hohuns.github.io/Hans-Template/"
 }
