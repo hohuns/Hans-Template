@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Hans-Template/static/css/main.27899d12.css",
+    "main.js": "/Hans-Template/static/js/main.991b8e1f.js",
+    "index.html": "/Hans-Template/index.html",
+    "main.27899d12.css.map": "/Hans-Template/static/css/main.27899d12.css.map",
+    "main.991b8e1f.js.map": "/Hans-Template/static/js/main.991b8e1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27899d12.css",
+    "static/js/main.991b8e1f.js"
+  ]
+}
