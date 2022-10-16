@@ -31,7 +31,6 @@ const dataSource = [
 const ReactDataGridEx = () => {
   return (
     <ReactDataGrid
-      licenseKey="AppName=ProtekTechnologyApp,Company=ProtekTechnology,ExpiryDate=2023-04-01,LicenseDeveloperCount=1,LicenseType=single_app,Ref=ProtekTechnologyLicenseRef,Z=1892508404-7188603061305833417-20820166171740471424-1075078314"
       idProperty="id"
       columns={columns}
       dataSource={dataSource}
