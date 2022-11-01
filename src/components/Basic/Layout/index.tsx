@@ -1,7 +1,7 @@
 import Navbar from "../Topbar/index";
 import Sidebar from "../SideBar";
 import MainContainer from "../MainContainer";
-import ReactDataGridEx from "../test2";
+import ReactDataGridEx from "../../MainContainerTemplate";
 import { useLocation } from "react-router-dom";
 
 const Layout = () => {

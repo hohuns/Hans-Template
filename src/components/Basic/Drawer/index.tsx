@@ -70,19 +70,19 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }: drawerType) => {
             <ListItemIcon>
               <LocationOnIcon sx={{ color: "primary.main" }} />
             </ListItemIcon>
-            <ListItemText primary="Location" />
+            <ListItemText primary="logo1" />
           </ListItemButton>
           <ListItemButton onClick={(event) => handleListItemClick(event, 2)}>
             <ListItemIcon>
               <NoteAltIcon sx={{ color: "primary.main" }} />
             </ListItemIcon>
-            <ListItemText primary="Order" />
+            <ListItemText primary="logo2" />
           </ListItemButton>
           <ListItemButton onClick={(event) => handleListItemClick(event, 3)}>
             <ListItemIcon>
               <PrecisionManufacturingIcon sx={{ color: "primary.main" }} />
             </ListItemIcon>
-            <ListItemText primary="AGV Pool" />
+            <ListItemText primary="logo3" />
           </ListItemButton>
         </List>
       </Box>

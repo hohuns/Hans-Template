@@ -4,8 +4,8 @@ import Link from "@mui/material/Link";
 import HomeIcon from "@mui/icons-material/Home";
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { usersActions } from "../../store/userSlice";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
+import { usersActions } from "../../../store/userSlice";
 
 interface breadScrumType {
   breadScrumTile: string;
@@ -25,7 +25,7 @@ export default function BasicBreadcrumbs({ breadScrumTile }: breadScrumType) {
       <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="primary.main">
           <HomeIcon
-            sx={{ width: "18px", height: "18px" }}
+            sx={{ width: "18px", height: "18px", cursor: "pointer" }}
             onClick={() => {
               navigate("/home");
               dispatch(usersActions.updateDashboardIndex(0));

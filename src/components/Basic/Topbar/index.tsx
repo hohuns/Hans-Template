@@ -6,11 +6,11 @@ import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import Avatar from "@mui/material/Avatar";
-import UserService from "../../service/KeyCloakService";
+import UserService from "../../../service/KeyCloakService";
 import StyledBadge from "../StyledBadge";
 import MuiThemeSwitch from "../MuiThemeSwitch";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { usersActions } from "../../store/userSlice";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
+import { usersActions } from "../../../store/userSlice";
 import "./topbar.css";
 import { useState } from "react";
 
@@ -41,7 +41,15 @@ const Navbar = () => {
 
   return (
     <div className="navContainer">
-      <AppBar position="sticky">
+      <AppBar
+        position="sticky"
+        sx={{
+          background:
+            checked === true
+              ? "linear-gradient(to right bottom, #0071a8, #194862)"
+              : "#000008",
+        }}
+      >
         <Toolbar>
           <Box
             sx={{

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { usersActions } from "../../store/userSlice";
-import { useEffect, useState } from "react";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
+import { usersActions } from "../../../store/userSlice";
+import { useCallback, useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -16,6 +16,8 @@ import NoteAltIcon from "@mui/icons-material/NoteAlt";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import DrawerComponent from "../Drawer";
+import { useLocation } from "react-router-dom";
+
 export default function SelectedListItem() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -27,6 +29,7 @@ export default function SelectedListItem() {
   const [selectedIndex, setSelectedIndex] =
     useState<number>(reduxDashboardIndex);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const location = useLocation();
 
   // routing for sidebar to each coressponding components
   const handleListItemClick = (
@@ -37,27 +40,49 @@ export default function SelectedListItem() {
       navigate("/home");
       setSelectedIndex(index);
       dispatch(usersActions.updateDashboardIndex(index));
+      localStorage.setItem("index", index.toString());
     } else if (index === 1) {
       navigate("/logo1");
       setSelectedIndex(index);
       dispatch(usersActions.updateDashboardIndex(index));
+      localStorage.setItem("index", index.toString());
     } else if (index === 2) {
       navigate("/logo2");
       setSelectedIndex(index);
       dispatch(usersActions.updateDashboardIndex(index));
+      localStorage.setItem("index", index.toString());
     } else if (index === 3) {
       navigate("/logo3");
       setSelectedIndex(index);
       dispatch(usersActions.updateDashboardIndex(index));
+      localStorage.setItem("index", index.toString());
     }
   };
 
-  // Prevent malfunction indexing for refreshing
-  useEffect(() => {
-    if (reduxDashboardIndex === 0) {
-      navigate("/home");
+  const sidebarIndexReloader = useCallback(() => {
+    if (location.pathname === "/home") {
+      localStorage.setItem("index", "0");
+      dispatch(usersActions.updateDashboardIndex(0));
+      setSelectedIndex(0);
+    } else if (location.pathname === "/logo1") {
+      localStorage.setItem("index", "1");
+      dispatch(usersActions.updateDashboardIndex(1));
+      setSelectedIndex(1);
+    } else if (location.pathname === "/logo2") {
+      localStorage.setItem("index", "2");
+      dispatch(usersActions.updateDashboardIndex(2));
+      setSelectedIndex(2);
+    } else if (location.pathname === "/logo3") {
+      localStorage.setItem("index", "3");
+      dispatch(usersActions.updateDashboardIndex(3));
+      setSelectedIndex(3);
     }
-  }, [reduxDashboardIndex, navigate]);
+  }, [dispatch, location.pathname]);
+
+  // Tracking sidebar index whenever app is refreshed
+  useEffect(() => {
+    sidebarIndexReloader();
+  }, [sidebarIndexReloader]);
 
   return (
     <>

@@ -4,10 +4,12 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BasicBreadcrumbs from "../BreadScrum/index";
 import Button from "@mui/material/Button";
+import { useAppSelector } from "../../../store/hooks";
 
 const MainContainer = (props: any) => {
   const location = useLocation();
   const [breadScrumTitle, setBreadScrumTitle] = useState<string>("");
+  const reduxTheme: string = useAppSelector((state) => state.theme);
 
   // Getting bread scrum title whenever pathname is changed
   useEffect(() => {
@@ -32,50 +34,36 @@ const MainContainer = (props: any) => {
               padding: "15px",
             }}
           >
-            <Grid item xs={12} sm={12}>
-              <Toolbar
-                sx={{
-                  borderRadius: "8px",
-                  border: "1px solid",
-                  borderColor: "primary.main",
-                  gap: "10px",
-                  padding: "15px",
-                }}
-              >
-                <Grid item xs={12} sm={3}>
-                  <BasicBreadcrumbs breadScrumTile={breadScrumTitle} />
-                </Grid>
-                <Grid item xs={12} sm={1.5}>
-                  <Button variant="outlined" fullWidth={true}>
-                    Load Data
-                  </Button>
-                </Grid>
-                <Grid item xs={12} sm={1.5}>
-                  <Button variant="outlined" fullWidth={true}>
-                    Clear Data
-                  </Button>
-                </Grid>
-                <Grid item xs={12} sm={1.5}>
-                  <Button variant="outlined" fullWidth={true}>
-                    Exports
-                  </Button>
-                </Grid>
-              </Toolbar>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              sx={{ marginTop: "20px", padding: "10px" }}
-            >
+            <Grid item xs={12} sm={12} sx={{ padding: "10px" }}>
               {props.children}
             </Grid>
           </Paper>
         </Grid>
       </Grid>
       <footer className="footer" style={{ marginTop: "15px" }}>
-        <p>&copy; SUNG JAE JOO HANS ALL RIGHT RESERVE</p>
+        {reduxTheme === "themeLight" ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <p>&copy;2022 JOO SUNG JAE HANS All right reserved.</p>
+            <p>0.0.1 Light theme</p>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <p style={{ color: "white" }}>
+              &copy; 2022 JOO SUNG JAE HANS All right reserved.
+            </p>
+            <p style={{ color: "white" }}>0.0.1 Dark theme</p>
+          </div>
+        )}
       </footer>
     </div>
   );

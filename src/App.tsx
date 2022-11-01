@@ -3,7 +3,7 @@ import Home from "./pages/homepage/index";
 import Location from "./pages/logo1/index";
 import Order from "./pages/logo2/index";
 import AGVPool from "./pages/logo3/index";
-import LoginGate from "./components/LoginGate/index";
+import LoginGate from "./components/Basic/LoginGate/index";
 import { useAppSelector, useAppDispatch } from "../src/store/hooks";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material";
