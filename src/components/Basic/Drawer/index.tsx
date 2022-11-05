@@ -27,17 +27,19 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }: drawerType) => {
     index: number
   ) => {
     if (index === 0) {
-      console.log(index === 0);
       navigate("/home");
       setOpenDrawer(false);
     } else if (index === 1) {
-      navigate("/location");
+      navigate("/logo1");
       setOpenDrawer(false);
     } else if (index === 2) {
-      navigate("/order");
+      navigate("/logo2");
       setOpenDrawer(false);
     } else if (index === 3) {
-      navigate("/agvpool");
+      navigate("/logo3");
+      setOpenDrawer(false);
+    } else if (index === 4) {
+      navigate("/logo3");
       setOpenDrawer(false);
     }
   };

@@ -6,18 +6,18 @@ import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import Avatar from "@mui/material/Avatar";
-import UserService from "../../../service/KeyCloakService";
 import StyledBadge from "../StyledBadge";
 import MuiThemeSwitch from "../MuiThemeSwitch";
 import { useAppSelector, useAppDispatch } from "../../../store/hooks";
 import { usersActions } from "../../../store/userSlice";
 import "./topbar.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   let navigate = useNavigate();
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState<boolean>(true);
   const dispatch = useAppDispatch();
+  const reduxTheme: string = useAppSelector((state) => state.theme);
 
   // Changing theme according to MuiThemeSwtich
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,12 +32,14 @@ const Navbar = () => {
     }
   };
 
-  // Making default username inside avatar
-  // const makeUserNameForAvatar = () => {
-  //   const temp =
-  //     UserService.getUsername().charAt(0) + UserService.getUsername().slice(-1);
-  //   return temp;
-  // };
+  // Reload status of themeSwitch
+  useEffect(() => {
+    if (reduxTheme === "themeLight") {
+      setChecked(true);
+    } else if (reduxTheme === "themeDark") {
+      setChecked(false);
+    }
+  }, [reduxTheme]);
 
   return (
     <div className="navContainer">
@@ -45,7 +47,7 @@ const Navbar = () => {
         position="sticky"
         sx={{
           background:
-            checked === true
+            reduxTheme === "themeLight"
               ? "linear-gradient(to right bottom, #0071a8, #194862)"
               : "#000008",
         }}

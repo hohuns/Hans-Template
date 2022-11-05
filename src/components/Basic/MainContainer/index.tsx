@@ -1,25 +1,10 @@
 import "./maincontainer.css";
-import { Grid, Paper, Toolbar } from "@mui/material";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import BasicBreadcrumbs from "../BreadScrum/index";
-import Button from "@mui/material/Button";
+import { Grid, Paper } from "@mui/material";
+
 import { useAppSelector } from "../../../store/hooks";
 
 const MainContainer = (props: any) => {
-  const location = useLocation();
-  const [breadScrumTitle, setBreadScrumTitle] = useState<string>("");
   const reduxTheme: string = useAppSelector((state) => state.theme);
-
-  // Getting bread scrum title whenever pathname is changed
-  useEffect(() => {
-    const makebreadScrumTitle = () => {
-      let tempLocName = location.pathname.toString();
-      tempLocName = tempLocName.charAt(1).toUpperCase() + tempLocName.slice(2);
-      setBreadScrumTitle(tempLocName);
-    };
-    makebreadScrumTitle();
-  }, [location.pathname]);
 
   return (
     <div className="mainContainer">
