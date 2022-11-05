@@ -34,7 +34,7 @@ const MainContainer = (props: any) => {
             }}
           >
             <p>&copy;2022 JOO SUNG JAE HANS All right reserved.</p>
-            <p>0.0.1 Light theme</p>
+            <p>0.0.2 Light theme</p>
           </div>
         ) : (
           <div
@@ -46,7 +46,7 @@ const MainContainer = (props: any) => {
             <p style={{ color: "white" }}>
               &copy; 2022 JOO SUNG JAE HANS All right reserved.
             </p>
-            <p style={{ color: "white" }}>0.0.1 Dark theme</p>
+            <p style={{ color: "white" }}>0.0.2 Dark theme</p>
           </div>
         )}
       </footer>
